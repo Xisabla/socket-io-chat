@@ -10,6 +10,14 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
+#chat-username-ok {
+    display: none;
+}
+
+#chat-username-taken {
+    display: none;
+}
+
 #chat-navigation.navbar {
     margin-bottom: 0px;
 }
@@ -17,6 +25,7 @@ html {
 #chat-client {
     list-style-type: none;
     padding: 0px;
+    margin-bottom: 54px;
 }
 
 #chat-client li.message {
@@ -36,11 +45,3 @@ html {
     text-align: center;
     width: 100%;
 }
-
-
-/*
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-      #messages { margin-bottom: 40px }
-      */

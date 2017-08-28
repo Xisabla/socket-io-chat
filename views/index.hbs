@@ -1,4 +1,4 @@
-<nav class="navbar navbar-static-top navbar-default" id="chat-navigation">
+<nav id="chat-navigation" class="navbar navbar-static-top navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed">
@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">socket-io-chat (SAMPLE NAVBAR)</a>
+            <a href="/" class="navbar-brand">socket-io-chat</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -25,21 +25,10 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Friends <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header"><strong>Friends</strong></li>
-                        <li><a href="#"><i style="color: #7f8c8d" class="fa fa-circle" aria-hidden="true"></i> Jared Tran</a></li>
-                        <li><a href="#"><i style="color: #2ecc71" class="fa fa-circle" aria-hidden="true"></i> Lester Flores</a></li>
-                        <li class="dropdown-header"><strong>Category 1</strong></li>
-                        <li><a href="#"><i style="color: #7f8c8d" class="fa fa-circle" aria-hidden="true"></i> Esther Thornton</a></li>
-                        <li><a href="#"><i style="color: #2ecc71" class="fa fa-circle" aria-hidden="true"></i> Ronnie Thornton</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header"><strong>Category 2</strong></li>
-                        <li><a href="#"><i style="color: #2ecc71" class="fa fa-circle" aria-hidden="true"></i> Mittie Hale</a></li>
-                        <li><a href="#"><i style="color: #7f8c8d" class="fa fa-circle" aria-hidden="true"></i> Linnie Sparks</a></li>
-                        <li><a href="#"><i style="color: #7f8c8d" class="fa fa-circle" aria-hidden="true"></i> Jesus Kennedy</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Manage friend list</a></li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Connected users <span class="caret"></span></a>
+                    <ul id="chat-users-list" class="dropdown-menu">
+                        <li><a href="#">Jared Tran</a></li>
+                        <li><a href="#"><i class="fa fa-commenting" aria-hidden="true"></i> Jared Tran</a></li>
                     </ul>
                 </li>
             </ul>
@@ -51,17 +40,7 @@
                 <button type="submit" class="btn btn-success">Join channel</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
+                <li><a href="https://github.com/xisabla/socket-io-chat" title="Github repo"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>
@@ -69,25 +48,46 @@
 
 <div id="chat-client" class="container-fluid">
 
-    <li class="message">[19:31:49] egewalot - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem ratione obcaecati maiores corrupti
-        amet nulla aperiam, asperiores, beatae illo, eligendi ut quam excepturi. Sit quis, eaque nemo sed natus nisi.
-    </li>
-    <li class="message">[19:31:49] egewalot - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem ratione obcaecati maiores corrupti
-        amet nulla aperiam, asperiores, beatae illo, eligendi ut quam excepturi. Sit quis, eaque nemo sed natus nisi.
-    </li>
-    <li class="message">[19:31:49] egewalot - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem ratione obcaecati maiores corrupti
-        amet nulla aperiam, asperiores, beatae illo, eligendi ut quam excepturi. Sit quis, eaque nemo sed natus nisi.
-    </li>
-    <li class="message">[19:31:49] egewalot - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem ratione obcaecati maiores corrupti
-        amet nulla aperiam, asperiores, beatae illo, eligendi ut quam excepturi. Sit quis, eaque nemo sed natus nisi.
-    </li>
-
     <form id="chat-client-form">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Message">
+            <input type="text" name="message" class="form-control" placeholder="Message">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><i class="fa fa-comment" aria-hidden="true"></i> Send</button>
+                <button class="btn btn-default" type="submit"><i class="fa fa-comment" aria-hidden="true"></i> Send</button>
             </span>
         </div>
     </form>
+
+</div>
+
+<div id="chat-username" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Choose a username to join 😎</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div id="chat-username-ok" class="alert alert-success">
+                    <strong>Valid username ✅ !</strong> Waiting for server connection confirmation 😉<i class="fa fa-spinner fa-pulse fa-fw"></i>
+                </div>
+
+                <div id="chat-username-taken" class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Sorry 😕...</strong> This username is already taken, please use another.
+                </div>
+
+                <form id="chat-username-form">
+                    <div class="input-group">
+                        <input type="text" name="username" class="form-control" placeholder="Username">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-check" aria-hidden="true"></i> Choose</button>
+                        </span>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
 </div>
