@@ -15,11 +15,13 @@
         ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
-        "semi": [
+        "semi": "off",
+        "semi-spacing": "error",
+        "semi-style": [
             "error",
-            "always"
+            "last"
         ]
     }
 }
