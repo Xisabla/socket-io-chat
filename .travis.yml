@@ -4,7 +4,15 @@ node_js:
 
 notifications:
     email:
-        - xisabla.dev@gmail.com
+        recipients:
+            - xisabla.dev@gmail.com
+        on_success: change
+        on_failure: always
+    irc: 
+        channels:
+            - "chat.freenode.net#Xisabla"
+        on_success: always
+        on_failure: always
 
 before_install:
     - npm install --global yarn
