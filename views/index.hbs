@@ -1,1 +1,93 @@
-<h1>Hello World</h1>
+<nav class="navbar navbar-static-top navbar-default" id="chat-navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">socket-io-chat (SAMPLE NAVBAR)</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Channels <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header"><strong>Official channels ✅</strong></li>
+                        <li><a href="#">Main</a></li>
+                        <li><a href="#">Second</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header"><strong>Unofficial channels</strong></li>
+                        <li><a href="#">😏 Hello World</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" class="open-create-channel"><strong>😉 Create your own channel</strong></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Friends <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header"><strong>Friends</strong></li>
+                        <li><a href="#"><i style="color: #7f8c8d" class="fa fa-circle" aria-hidden="true"></i> Jared Tran</a></li>
+                        <li><a href="#"><i style="color: #2ecc71" class="fa fa-circle" aria-hidden="true"></i> Lester Flores</a></li>
+                        <li class="dropdown-header"><strong>Category 1</strong></li>
+                        <li><a href="#"><i style="color: #7f8c8d" class="fa fa-circle" aria-hidden="true"></i> Esther Thornton</a></li>
+                        <li><a href="#"><i style="color: #2ecc71" class="fa fa-circle" aria-hidden="true"></i> Ronnie Thornton</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header"><strong>Category 2</strong></li>
+                        <li><a href="#"><i style="color: #2ecc71" class="fa fa-circle" aria-hidden="true"></i> Mittie Hale</a></li>
+                        <li><a href="#"><i style="color: #7f8c8d" class="fa fa-circle" aria-hidden="true"></i> Linnie Sparks</a></li>
+                        <li><a href="#"><i style="color: #7f8c8d" class="fa fa-circle" aria-hidden="true"></i> Jesus Kennedy</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Manage friend list</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" id="form-channel-join" data-toggle="popover" data-content="Choose a channel that doesn't exist to create it! 😉"
+                data-placement="bottom">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Channel name">
+                </div>
+                <button type="submit" class="btn btn-success">Join channel</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="chat-client" class="container-fluid">
+
+    <li class="message">[19:31:49] egewalot - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem ratione obcaecati maiores corrupti
+        amet nulla aperiam, asperiores, beatae illo, eligendi ut quam excepturi. Sit quis, eaque nemo sed natus nisi.
+    </li>
+    <li class="message">[19:31:49] egewalot - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem ratione obcaecati maiores corrupti
+        amet nulla aperiam, asperiores, beatae illo, eligendi ut quam excepturi. Sit quis, eaque nemo sed natus nisi.
+    </li>
+    <li class="message">[19:31:49] egewalot - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem ratione obcaecati maiores corrupti
+        amet nulla aperiam, asperiores, beatae illo, eligendi ut quam excepturi. Sit quis, eaque nemo sed natus nisi.
+    </li>
+    <li class="message">[19:31:49] egewalot - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem ratione obcaecati maiores corrupti
+        amet nulla aperiam, asperiores, beatae illo, eligendi ut quam excepturi. Sit quis, eaque nemo sed natus nisi.
+    </li>
+
+    <form id="chat-client-form">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Message">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-comment" aria-hidden="true"></i> Send</button>
+            </span>
+        </div>
+    </form>
+</div>
