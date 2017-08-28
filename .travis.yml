@@ -7,10 +7,10 @@ notifications:
         - xisabla.dev@gmail.com
 
 before_install:
-    - npm install --global eslint
+    - npm install --global yarn
     
 install:
-    - npm install
+    - yarn install
 
 deploy:
     provider: heroku
